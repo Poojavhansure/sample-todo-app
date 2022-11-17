@@ -5,7 +5,7 @@ import json
 
 url = os.getenv("LT_HUB_URL")
 capabilities = {
-    options = ChromeOptions()
+    ChromeOptions options = ChromeOptions()
     options.browser_version = "108.0"
     options.platform_name = "Windows 10"
     lt_options = {};
