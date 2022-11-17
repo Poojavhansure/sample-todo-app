@@ -5,16 +5,16 @@ import json
 
 url = os.getenv("LT_HUB_URL")
 capabilities = {
-    ChromeOptions browserOptions = new ChromeOptions();
-    browserOptions.setPlatformName("Windows 10");
-    browserOptions.setBrowserVersion("108.0");
-    HashMap<String, Object> ltOptions = new HashMap<String, Object>();
-    ltOptions.put("username", "poojarani");
-    ltOptions.put("accessKey", "dgj3OUvt0nfuMhh5XiDONY23IzlkfKSsl2rb2PWEp80k4lxO55");
-    ltOptions.put("project", "Untitled");
-    ltOptions.put("selenium_version", "4.0.0");
-    ltOptions.put("w3c", true);
-    browserOptions.setCapabilities("LT:Options", ltOptions);
+    options = ChromeOptions()
+    options.browser_version = "108.0"
+    options.platform_name = "Windows 10"
+    lt_options = {};
+    lt_options["username"] = "poojarani";
+    lt_options["accessKey"] = "dgj3OUvt0nfuMhh5XiDONY23IzlkfKSsl2rb2PWEp80k4lxO55";
+    lt_options["project"] = "Untitled";
+    lt_options["w3c"] = True;
+    lt_options["plugin"] = "python-python";
+    options.set_capability('LT:Options', lt_options);
 }
 driver = webdriver.Remote(
     desired_capabilities= capabilities,
