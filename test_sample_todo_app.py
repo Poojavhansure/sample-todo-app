@@ -4,18 +4,32 @@ import os
 import json
 
 url = os.getenv("LT_HUB_URL")
-capabilities = {
-    ChromeOptions options = ChromeOptions()
-    options.browser_version = "108.0"
-    options.platform_name = "Windows 10"
-    lt_options = {};
-    lt_options["username"] = "poojarani";
-    lt_options["accessKey"] = "dgj3OUvt0nfuMhh5XiDONY23IzlkfKSsl2rb2PWEp80k4lxO55";
-    lt_options["project"] = "Untitled";
-    lt_options["w3c"] = True;
-    lt_options["plugin"] = "python-python";
-    options.set_capability('LT:Options', lt_options);
-}
+capabilities = [
+    {
+        "browserName": "Chrome",
+        "browserVersion": "103.0",
+        "os": "Windows",
+        "osVersion": "11",
+        "sessionName": "BStack Python sample parallel",  # test name
+        "buildName": LT_BUILD_NAME,  # Your tests will be organized within this build
+    },
+    {
+        "browserName": "Firefox",
+        "browserVersion": "102.0",
+        "os": "Windows",
+        "osVersion": "10",
+        "sessionName": "BStack Python sample parallel",
+        "buildName": LT_BUILD_NAME,
+    },
+    {
+        "browserName": "Safari",
+        "browserVersion": "14.1",
+        "os": "OS X",
+        "osVersion": "Big Sur",
+        "sessionName": "BStack Python sample parallel",
+        "buildName": LT_BUILD_NAME,
+    },
+]
 driver = webdriver.Remote(
     desired_capabilities= capabilities,
     command_executor= url
